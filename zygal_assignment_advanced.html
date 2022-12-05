@@ -177,12 +177,13 @@
                 return days = 31;
             }
         }
+        const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
         var daysOfMonth = () => {
             let days = getDays();
             var monthsObj = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
             var tyuu = document.getElementById("months").value;
-            var month1 = Number(monthsObj.indexOf(tyuu)) + 1; //monhth
+            var month1 = Number(monthsObj.indexOf(tyuu)); //monhth
 
             const date222 = new Date();
             var yyy = document.getElementById("years").value;
@@ -190,9 +191,15 @@
             date222.setFullYear(yyy);
             date222.setMonth(month1);
             date222.setDate(1);
-    
+
             var stday = date222.getDay();
-            console.log(stday);
+            if(date222.getDay() == 0){
+                stday = 0;
+            }else{
+                var stday = date222.getDay()-1;
+            }
+            
+            console.log(date222);
 
 
             
